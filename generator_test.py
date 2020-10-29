@@ -141,7 +141,7 @@ salad = {
     # item name: [price, weight]
     "Larb Gai": [12, 100],
     "Nam Kao Tod": [12, 1],
-    "Yum Woosen": [13, 1],
+    "Yum Woonsen": [13, 1],
     "Som Tum": [12, 1],
     "Yum Nua": [12, 1],
     "Waterfall Mushroom and Tofu": [12, 1],
@@ -241,13 +241,24 @@ for year in years:
                         food_type_weights = [selection[1] for selection in list(food_type_selection[0].values())]
                         food_selection = random.choices(list(food_type_selection[0].keys()), food_type_weights)[0]
 
+                        quantity_ordered = 1
+                        if random.random() < 0.02:
+                            quantity_ordered = random.choice(range(1, 10))
+                        elif random.random() < 0.05:
+                            quantity_ordered = 2
+
                         price = food_type_selection[0][food_selection][0]
                         order_date = datetime.datetime(year, month, day, hour, random_minute)
 
                         day_df = pd.DataFrame(columns=columns)
-                        day_df.loc[i] = [order_id, food_selection, 1, price, order_date]
+                        day_df.loc[i] = [order_id, food_selection, quantity_ordered, price, order_date]
 
                         month_df = month_df.append(day_df, ignore_index=True)
+
+                        # if food selection in certain food_type...
+                        # additional chance to get another food type
+                        # i guess generate again and then append again then
+
                         order_id += 1
 
         month_df.to_csv(f'{months[month][0]}_{year}_test_data.csv')
