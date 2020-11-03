@@ -1,4 +1,3 @@
-# import libraries
 import pandas as pd
 import numpy as np
 import datetime
@@ -283,5 +282,5 @@ for year in years:
 
                         order_id += 1
 
-        month_df.to_csv(f'{months[month][0]}_{year}_data.csv')
+        month_df.to_csv(f'{months[month][0]}_{year}_data.csv', index=False)
         print(f"{months[month][0]} {year} complete!")
