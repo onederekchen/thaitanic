@@ -5,7 +5,7 @@ The point of this project is to demonstrate A/B testing, which is difficult outs
 
 If you are only interested the raw dataset, you can find it **here**. There's also a pre-merged version **here**.
 
-This project has three notebooks explaining the chronological steps:
+This project has three notebooks explaining its chronological steps:
 1. An explanation of the data generator and its design choices
 2. An exploratory analysis to offer experiment suggestions
 3. An experimental design and evaluation to interpret findings
