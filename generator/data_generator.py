@@ -17,24 +17,24 @@ def calculate_hourly_weights(weight):
 years = {  # could add some random variation in here!
     # Year: Weight
     2017: 0.985,
-    # 2018: 0.99,
-    # 2019: 1.01,
+    2018: 0.99,
+    2019: 1.01,
 }
 
 months = {
     # month value: [Month name, month weight]
     1: ["January", 0.8],
     2: ["February", 0.8],
-    # 3: ["March", 0.8],
-    # 4: ["April", 0.8],
-    # 5: ["May", 0.8],
-    # 6: ["June", 0.9],
-    # 7: ["July", 0.9],
-    # 8: ["August", 0.9],
-    # 9: ["September", 0.8],
-    # 10: ["October", 0.8],
-    # 11: ["November", 1.1],
-    # 12: ["December", 1.1],
+    3: ["March", 0.8],
+    4: ["April", 0.8],
+    5: ["May", 0.8],
+    6: ["June", 0.9],
+    7: ["July", 0.9],
+    8: ["August", 0.9],
+    9: ["September", 0.8],
+    10: ["October", 0.8],
+    11: ["November", 1.1],
+    12: ["December", 1.1],
 }
 
 tuesday_hours = {
@@ -206,7 +206,7 @@ full_menu = [
 # full_menu_weights order matches full_menu
 full_menu_weights = [3, 5, 4, 2, 4, 3, 8, 10, 4]
 
-columns = ['Order ID', 'Product', 'Quantity Ordered', 'Price Each', 'Order Date']
+columns = ['Order ID', 'Item', 'Quantity Ordered', 'Price Each', 'Order Date']
 
 order_id = 3910
 
@@ -285,4 +285,4 @@ for year in years:
                         order_id += 1
 
         month_df.to_csv(f'{months[month][0]}_{year}_data.csv', index=False)
-        print(f"{months[month][0]} {year} complete!")
+        print(f"{months[month][0]} {year} complete!!")
