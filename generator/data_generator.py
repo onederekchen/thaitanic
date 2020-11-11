@@ -148,9 +148,9 @@ salad = {
 
 barbecue = {
     # item name: [price, weight]
-    "Grilled Thai Steak": [20, 0],
-    "Bar-B-Q Chicken": [20, 0],
-    "Grilled Salmon": [22, 0],
+    "Grilled Thai Steak": [20, 1],
+    "Bar-B-Q Chicken": [20, 1],
+    "Grilled Salmon": [22, 1],
 }
 
 sauteed = {
