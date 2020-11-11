@@ -17,24 +17,24 @@ def calculate_hourly_weights(weight):
 years = {  # could add some random variation in here!
     # Year: Weight
     2017: 0.985,
-    2018: 0.99,
-    2019: 1.01,
+    # 2018: 0.99,
+    # 2019: 1.01,
 }
 
 months = {
     # month value: [Month name, month weight]
     1: ["January", 0.8],
-    2: ["February", 0.8],
-    3: ["March", 0.8],
-    4: ["April", 0.8],
-    5: ["May", 0.8],
-    6: ["June", 0.9],
-    7: ["July", 0.9],
-    8: ["August", 0.9],
-    9: ["September", 0.8],
-    10: ["October", 0.8],
-    11: ["November", 1.1],
-    12: ["December", 1.1],
+    # 2: ["February", 0.8],
+    # 3: ["March", 0.8],
+    # 4: ["April", 0.8],
+    # 5: ["May", 0.8],
+    # 6: ["June", 0.9],
+    # 7: ["July", 0.9],
+    # 8: ["August", 0.9],
+    # 9: ["September", 0.8],
+    # 10: ["October", 0.8],
+    # 11: ["November", 1.1],
+    # 12: ["December", 1.1],
 }
 
 tuesday_hours = {
