@@ -3,6 +3,7 @@ import numpy as np
 import datetime
 import random
 import calendar
+import math
 
 
 def calculate_hourly_weights(weight):
@@ -205,7 +206,7 @@ full_menu = [
 # full_menu_weights order matches full_menu
 full_menu_weights = [3, 5, 4, 2, 4, 3, 8, 10, 4]
 
-columns = ['Order ID', 'Product', 'Quantity Ordered', 'Price Each', 'Order Date']
+columns = ['Order ID', 'Item', 'Quantity Ordered', 'Price Each', 'Order Date']
 
 order_id = 3910
 
@@ -225,13 +226,13 @@ for year in years:
 
         for day in range(1, calendar.monthrange(year, month)[1]+1):
             day_of_week = datetime.datetime(year, month, day).weekday()
-            if day_of_week in hours_for_day_of_week:
-                day_hours = hours_for_day_of_week[day_of_week]
+            if day_of_week in hours_for_day_of_week:  # closed on Mondays!
+                day_hours = hours_for_day_of_week[day_of_week]  # weekdays/ends have diff. hours
 
                 for hour in day_hours:
                     hour_weight = day_hours[hour][1]
                     order_weight = year_weight * month_weight * hour_weight
-                    orders = int(np.random.normal(loc=40*order_weight, scale=5*order_weight))
+                    orders = int(np.random.normal(loc=60*order_weight, scale=10*order_weight))
 
                     for i in range(orders):  # needs refactor
                         food_type_selection = random.choices(full_menu, weights=full_menu_weights)
@@ -240,11 +241,12 @@ for year in years:
 
                         price = food_type_selection[0][food_selection][0]
 
-                        quantity_ordered = 1
-                        if random.random() < 0.02:  # chance to increase quantity of same item
-                            quantity_ordered = random.choice(range(1, 10))
-                        elif random.random() < 0.05:
-                            quantity_ordered = 2
+                        quantity_ordered = math.ceil(np.random.exponential(scale=1, size=1)[0])
+                        # quantity_ordered = 1
+                        # if random.random() < 0.02:  # chance to increase quantity of same item
+                        #     quantity_ordered = random.choice(range(1, 10))
+                        # elif random.random() < 0.05:
+                        #     quantity_ordered = 2
 
                         random_minute = random.randint(0, 59)
                         order_date = datetime.datetime(year, month, day, hour, random_minute)
@@ -283,4 +285,4 @@ for year in years:
                         order_id += 1
 
         month_df.to_csv(f'{months[month][0]}_{year}_data.csv', index=False)
-        print(f"{months[month][0]} {year} complete!")
+        print(f"{months[month][0]} {year} complete!!")
