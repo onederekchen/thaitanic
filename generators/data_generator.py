@@ -209,6 +209,7 @@ full_menu_weights = [3, 5, 4, 2, 4, 3, 8, 10, 4]
 columns = ['Order ID', 'Item', 'Quantity Ordered', 'Price Each', 'Order Date']
 
 order_id = 3910
+exp_dist_compensation = 0.7
 
 # add percent_occupancy to day_hours dictionaries
 print('Calculating weights.')
@@ -216,7 +217,7 @@ for day in hours_for_day_of_week.values():
     for hour in day:
         day[hour].append(calculate_hourly_weights(day.get(hour)[0]))
 
-print('Generating data.')
+print('Generating data!')
 for year in years:
     year_weight = years[year]
 
@@ -231,7 +232,7 @@ for year in years:
 
                 for hour in day_hours:
                     hour_weight = day_hours[hour][1]
-                    order_weight = year_weight * month_weight * hour_weight
+                    order_weight = year_weight * month_weight * hour_weight * exp_dist_compensation
                     orders = int(np.random.normal(loc=60*order_weight, scale=10*order_weight))
 
                     for i in range(orders):  # needs refactor
