@@ -233,7 +233,7 @@ for year in years:
                 for hour in day_hours:
                     hour_weight = day_hours[hour][1]
                     order_weight = year_weight * month_weight * hour_weight * exp_dist_compensation
-                    orders = int(np.random.normal(loc=60*order_weight, scale=10*order_weight))
+                    orders = int(np.random.normal(loc=60*order_weight, scale=4))
 
                     for i in range(orders):  # needs refactor
                         food_type_selection = random.choices(full_menu, weights=full_menu_weights)
