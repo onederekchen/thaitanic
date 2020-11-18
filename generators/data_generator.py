@@ -209,7 +209,7 @@ full_menu_weights = [3, 5, 4, 2, 4, 3, 8, 10, 4]
 columns = ['Order ID', 'Item', 'Quantity Ordered', 'Price Each', 'Order Date']
 
 order_id = 3910
-exp_dist_compensation = 0.7
+exp_dist_compensation = 0.7  # exp dist in quantity ordered inflates order count
 
 # add percent_occupancy to day_hours dictionaries
 print('Calculating weights.')
@@ -285,5 +285,6 @@ for year in years:
 
                         order_id += 1
 
-        month_df.to_csv(f'{months[month][0]}_{year}_data.csv', index=False)
+        month_df.to_csv(f'{months[month][0]}_{year}_data.csv', index=False)  # testing path
+        # month_df.to_csv(f'../thaitanic/data/raw_data/{months[month][0]}_{year}_data.csv', index=False)  # direct path
         print(f"{months[month][0]} {year} complete!!")
