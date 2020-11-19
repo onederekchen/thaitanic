@@ -288,6 +288,6 @@ for year in years:
 
                         order_id += 1
 
-        month_df.to_csv(f'{months[month][0]}_{year}_data.csv', index=False)  # testing path
+        month_df.to_csv(f'{months[month][0]}_{year}_data_test_hours.csv', index=False)  # testing path
         # month_df.to_csv(f'../thaitanic/data/raw_data/{months[month][0]}_{year}_data.csv', index=False)  # direct path
         print(f"{months[month][0]} {year} complete!!")
