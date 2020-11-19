@@ -145,7 +145,7 @@ salad = {
     "Larb Gai": [12, 6],
     "Nam Kao Tod": [12, 5],
     "Yum Woonsen": [13, 5],
-    "Som Tum": [12, 5],
+    "Som Tum": [10, 5],
     "Yum Nua": [12, 5],
     "Waterfall Mushroom and Tofu": [12, 6],
     "MyThai Salad": [12, 8],
