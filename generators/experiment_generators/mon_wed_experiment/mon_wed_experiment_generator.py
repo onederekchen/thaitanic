@@ -1,3 +1,5 @@
+# removes wednesday hours, adds monday hours average of tue/wed/thur * random weight
+
 import pandas as pd
 import numpy as np
 import datetime
@@ -14,7 +16,7 @@ def calculate_hourly_weights(weight):
     return (50 + 25 * weight) / 100
 
 
-years = {  # could add some random variation in here!
+years = {
     # Year: Weight
     # 2017: 0.985,
     # 2018: 0.99,
