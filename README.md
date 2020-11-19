@@ -1,22 +1,21 @@
 # thaitanic
 Generate, analyze, and A/B test data from a [real Thai restaurant](https://www.google.com/search?q=thai+tanic+sausalito).
 
-The point of this project is to demonstrate A/B testing, which is difficult outside of a company because you need access to a product with users. We get around that by generating the data ourselves, and then regenerating the data with random weights to simulate user feedback. 
+The point of this project is to demonstrate A/B testing, which is difficult outside of a company because you need access to a product with users. We get around that by generating the data ourselves, and then regenerating the data with random weights to simulate user feedback.
+
+If you're only interested the raw dataset, you can find it [here](https://github.com/onederekchen/thaitanic/tree/main/data/raw_data).
 
 This project has three notebooks explaining its chronological steps:
-1. An explanation of the data generator and its design choices
-2. An exploratory analysis to offer experiment suggestions
-3. An experimental design and evaluation to interpret findings
-
-If you are only interested the raw dataset, you can find it **here**. There's also a pre-merged version **here**.
+1. An explanation of the data generator and its design choices ([generator_explanation](https://github.com/onederekchen/thaitanic/blob/main/%20%20generator_explanation.ipynb))
+2. An exploratory analysis to offer experiment suggestions ([data_analysis](https://github.com/onederekchen/thaitanic/blob/main/%20data_analysis.ipynb))
+3. An experimental design and evaluation to interpret findings ([user_experiments](https://github.com/onederekchen/thaitanic/blob/main/%20user_experiments.ipynb))
 
 ### Data fields:
-- Order ID: Unique order ID (orders with more than one item are a second line with the same ID).
-- Item: Menu item ordered. See menu for possible values.
-- Quantity Ordered: Amount of the menu item ordered.
-- Price Each: Price per item ordered, same as listed on menu.
-- Order Date: Order date and time in YYYY-MM-DD hh:mm:ss format.
-
+- **Order ID**: Unique order ID (orders with more than one item are a second line with the same ID).
+- **Item**: Menu item ordered. See menu for possible values.
+- **Quantity Ordered**: Amount of the menu item ordered.
+- **Price Each**: Price per item ordered, same as listed on menu.
+- **Order Date**: Order date and time in YYYY-MM-DD hh:mm:ss format.
 
 ### Requirements
 
