@@ -1,3 +1,5 @@
+# removes wednesday hours, adds monday hours average of tue/wed/thur * random weight
+
 import pandas as pd
 import numpy as np
 import datetime
@@ -14,11 +16,12 @@ def calculate_hourly_weights(weight):
     return (50 + 25 * weight) / 100
 
 
-years = {  # could add some random variation in here!
+years = {
     # Year: Weight
-    2017: 0.985,
+    # 2017: 0.985,
     # 2018: 0.99,
     # 2019: 1.01,
+    2020: 1.02,
 }
 
 months = {
@@ -37,6 +40,20 @@ months = {
     # 12: ["December", 1.1],
 }
 
+mon_rand_weight = random.randrange(5, 15)/10
+monday_hours = {  # replaces wednesday in experiment
+    # values are average of tues, wed, thurs times a random multiplier
+    # hour value: [hour weight]
+    11: [0.33*mon_rand_weight],
+    12: [0.66*mon_rand_weight],
+    13: [0.75*mon_rand_weight],
+    14: [0.66*mon_rand_weight],
+    17: [0.66*mon_rand_weight],
+    18: [1.08*mon_rand_weight],
+    19: [1.16*mon_rand_weight],
+    20: [0.75*mon_rand_weight],
+}
+
 tuesday_hours = {
     # hour value: [hour weight]
     11: [0.5],
@@ -46,18 +63,6 @@ tuesday_hours = {
     17: [0.5],
     18: [1],
     19: [1.25],
-    20: [0.75],
-}
-
-wednesday_hours = {
-    # hour value: [hour weight]
-    11: [0.25],
-    12: [0.5],
-    13: [0.5],
-    14: [0.5],
-    17: [0.75],
-    18: [1],
-    19: [1],
     20: [0.75],
 }
 
@@ -111,8 +116,8 @@ sunday_hours = {
 
 hours_for_day_of_week = {
     # weekday_value: day_hours dictionary
+    0: monday_hours,
     1: tuesday_hours,
-    2: wednesday_hours,
     3: thursday_hours,
     4: friday_hours,
     5: saturday_hours,
@@ -208,7 +213,7 @@ full_menu_weights = [3, 5, 4, 2, 4, 3, 8, 10, 4]
 
 columns = ['Order ID', 'Item', 'Quantity Ordered', 'Price Each', 'Order Date']
 
-order_id = 3910
+order_id = 220838  # needs to be the last order ID from the previous dataset +1 !
 exp_dist_compensation = 0.7  # exp dist in quantity ordered inflates order count
 
 # add percent_occupancy to day_hours dictionaries
@@ -227,7 +232,7 @@ for year in years:
 
         for day in range(1, calendar.monthrange(year, month)[1]+1):
             day_of_week = datetime.datetime(year, month, day).weekday()
-            if day_of_week in hours_for_day_of_week:  # closed on Mondays!
+            if day_of_week in hours_for_day_of_week:  # closed on Wednesdays!
                 day_hours = hours_for_day_of_week[day_of_week]  # weekdays/ends have diff. hours
 
                 for hour in day_hours:
@@ -285,6 +290,6 @@ for year in years:
 
                         order_id += 1
 
-        month_df.to_csv(f'{months[month][0]}_{year}_data.csv', index=False)  # testing path
+        month_df.to_csv(f'{months[month][0]}_{year}_data_test_hours.csv', index=False)  # testing path
         # month_df.to_csv(f'../thaitanic/data/raw_data/{months[month][0]}_{year}_data.csv', index=False)  # direct path
         print(f"{months[month][0]} {year} complete!!")

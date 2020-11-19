@@ -1,3 +1,5 @@
+# updates menu items, weights based on new menu
+
 import pandas as pd
 import numpy as np
 import datetime
@@ -14,11 +16,12 @@ def calculate_hourly_weights(weight):
     return (50 + 25 * weight) / 100
 
 
-years = {  # could add some random variation in here!
+years = {
     # Year: Weight
-    2017: 0.985,
+    # 2017: 0.985,
     # 2018: 0.99,
     # 2019: 1.01,
+    2020: 1.02,
 }
 
 months = {
@@ -121,29 +124,31 @@ hours_for_day_of_week = {
 
 starters = {
     # item name: [price, weight]
-    "Tom Kha Gai": [12, 5],
-    "Sriracha Wings": [10, 5],
-    "Chicken Satay": [10, 9],
-    "Vegan Fresh Rolls": [10, 8],
+    "Vegan Fresh Rolls": [10, 9],
+    "Egg Rolls": [10, 7],  # new item
+    "Samosa": [10, 4],  # new item
+    "Sriracha Wings": [11, 5],  # price +1
+    "Chicken Satay": [11, 9],  # price +1
+    "Shrimp Rolls": [12, 7],  # new item
 }
 
 soup = {
     # item name: [price, weight]
+    "Tom Kha Gai": [13, 5],  # from starters, price +1
+    "Tom Yum Goong": [16, 3],  # price +1
     "Tom Yum Gai": [12, 3],
-    "Thai Beef Noodle Soup": [12, 10],
-    "Tom Yum Goong": [15, 3],
     "Won Ton Soup": [12, 9],
 }
 
 salad = {
     # item name: [price, weight]
     "Larb Gai": [12, 6],
-    "Nam Kao Tod": [12, 5],
+    "Nam Kao Tod": [13, 5],  # price +1
     "Yum Woonsen": [13, 5],
-    "Som Tum": [10, 5],
+    "Green Mango Salad": [15, 8],  # new item
     "Yum Nua": [12, 5],
-    "Waterfall Mushroom and Tofu": [12, 6],
-    "MyThai Salad": [12, 8],
+    "MyThai Salad": [13, 8],  # price +1
+    "Som Tum": [11, 5],  # price +1
 }
 
 barbecue = {
@@ -156,39 +161,42 @@ barbecue = {
 sauteed = {
     # item name: [price, weight]
     "Pad Gra Prow": [15, 4],
-    "Pad Gra Tiem": [15, 5],
     "Pad Char": [15, 4],
+    "Pad Hi Ma Parn": [15, 100],  # new item
+    "Pad Gra Tiem": [15, 5],
+    "Pad Khing": [15, 100],  # new item
 }
 
 vegetables = {
     # item name: [price, weight]
-    "Pad Ma Keur": [12, 6],
-    "Pra Ram": [12, 5],
-    "Pad Pak": [12, 3],
-    "Pad Prig Khing": [12, 6],
-    "Pad Ka Nar": [12, 8],
+    "Pad Ma Keur": [15, 6],  # price +3
+    "Pra Ram": [15, 5],  # price +3
+    "Pad Pak": [15, 3],  # price +3
+    "Pad Prig Khing": [15, 6],  # price +3
+    "Pad Ka Nar": [15, 8],  # price +3
 }
 
 curries = {
     # item name: [price, weight]
-    "Green Curry": [12, 10],
-    "Yellow Curry": [12, 10],
-    "Red Curry": [12, 10],
-    "Pumpkin Curry": [15, 6],
+    "Green Curry": [14, 10],  # price +2
+    "Yellow Curry": [14, 10],  # price +2
+    "Red Curry": [14, 10],  # price +2
+    "Pumpkin Curry": [16, 5],  # price +1
 }
 
 noodles_and_rice = {
     # item name: [price, weight]
-    "Pad Thai": [12, 10],
-    "Pad See Ew": [12, 6],
-    "Thai Fried Rice": [12, 9],
-    "Pad Kee Mao": [12, 5],
-    "Thai Streetfood Noodle": [12, 9],
-    "Basil Fried Rice": [12, 6],
+    "Pad Thai": [13, 10],  # price +1
+    "Pad See Ew": [13, 6],  # price +1
+    "Thai Fried Rice": [13, 9],  # price +1
+    "Thai Beef Noodle Soup": [13, 10],  # price +1
+    "Pad Kee Mao": [13, 5],  # price +1
+    "Thai Streetfood Noodle": [13, 9],  # price +1
+    "Basil Fried Rice": [13, 6],  # price +1
 }
 
 desserts = {
-    "Sticky Rice with Mango": [6, 10],
+    "Sticky Rice with Mango": [6.50, 10],  # price +0.50
 }
 
 full_menu = [
@@ -204,9 +212,9 @@ full_menu = [
 ]
 
 # full_menu_weights order matches full_menu
-full_menu_weights = [3, 5, 4, 2, 4, 3, 8, 10, 4]
+full_menu_weights = [3, 5, 4, 2, 2, 3, 8, 11, 4]
 
-columns = ['Order ID', 'Item', 'Quantity Ordered', 'Price Each', 'Order Date']
+columns = ['Order ID', 'Item', 'Quantity Ordered', 'Price Each', 'Order Date', "Test Type"]
 
 order_id = 3910
 exp_dist_compensation = 0.7  # exp dist in quantity ordered inflates order count
@@ -249,22 +257,27 @@ for year in years:
                         # elif random.random() < 0.05:
                         #     quantity_ordered = 2
 
+                        if random.random() > 0.5:
+                            test_type = "A"
+                        else:
+                            test_type = "B"
+
                         random_minute = random.randint(0, 59)
                         order_date = datetime.datetime(year, month, day, hour, random_minute)
 
                         day_df = pd.DataFrame(columns=columns)
-                        day_df.loc[i] = [order_id, food_selection, quantity_ordered, price, order_date]
+                        day_df.loc[i] = [order_id, food_selection, quantity_ordered, price, order_date, test_type]
                         month_df = month_df.append(day_df, ignore_index=True)
 
                         # chance for additional item in order (could refactor)
-                        if food_selection in starters and random.random() > 0.9:
+                        if food_selection in starters and random.random() > 0.8:  # increased from 0.1 to 0.2 chance
                             if random.random() > 0.6:
                                 food_type_selection = [desserts]
                                 food_type_weights = [selection[1] for selection in list(food_type_selection[0].values())]
                                 food_selection = random.choices(list(food_type_selection[0].keys()), food_type_weights)[0]
                                 price = food_type_selection[0][food_selection][0]
                                 day_df = pd.DataFrame(columns=columns)
-                                day_df.loc[i] = [order_id, food_selection, 1, price, order_date]
+                                day_df.loc[i] = [order_id, food_selection, 1, price, order_date, test_type]
                                 month_df = month_df.append(day_df, ignore_index=True)
                             else:
                                 food_type_selection = random.choices(full_menu, weights=full_menu_weights)
@@ -272,7 +285,7 @@ for year in years:
                                 food_selection = random.choices(list(food_type_selection[0].keys()), food_type_weights)[0]
                                 price = food_type_selection[0][food_selection][0]
                                 day_df = pd.DataFrame(columns=columns)
-                                day_df.loc[i] = [order_id, food_selection, quantity_ordered, price, order_date]
+                                day_df.loc[i] = [order_id, food_selection, quantity_ordered, price, order_date, test_type]
                                 month_df = month_df.append(day_df, ignore_index=True)
                         elif food_selection in desserts and random.random() > 0.5:
                             food_type_selection = random.choices(full_menu, weights=full_menu_weights)
@@ -280,7 +293,7 @@ for year in years:
                             food_selection = random.choices(list(food_type_selection[0].keys()), food_type_weights)[0]
                             price = food_type_selection[0][food_selection][0]
                             day_df = pd.DataFrame(columns=columns)
-                            day_df.loc[i] = [order_id, food_selection, quantity_ordered, price, order_date]
+                            day_df.loc[i] = [order_id, food_selection, quantity_ordered, price, order_date, test_type]
                             month_df = month_df.append(day_df, ignore_index=True)
 
                         order_id += 1
