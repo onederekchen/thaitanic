@@ -122,33 +122,33 @@ hours_for_day_of_week = {
     6: sunday_hours
 }
 
+# original menu
+
 starters = {
     # item name: [price, weight]
-    "Vegan Fresh Rolls": [10, 9],
-    "Egg Rolls": [10, 7],  # new item
-    "Samosa": [10, 4],  # new item
-    "Sriracha Wings": [11, 5],  # price +1
-    "Chicken Satay": [11, 9],  # price +1
-    "Shrimp Rolls": [12, 7],  # new item
+    "Tom Kha Gai": [12, 5],
+    "Sriracha Wings": [10, 5],
+    "Chicken Satay": [10, 9],
+    "Vegan Fresh Rolls": [10, 8],
 }
 
 soup = {
     # item name: [price, weight]
-    "Tom Kha Gai": [13, 5],  # from starters, price +1
-    "Tom Yum Goong": [16, 3],  # price +1
     "Tom Yum Gai": [12, 3],
+    "Thai Beef Noodle Soup": [12, 10],
+    "Tom Yum Goong": [15, 3],
     "Won Ton Soup": [12, 9],
 }
 
 salad = {
     # item name: [price, weight]
     "Larb Gai": [12, 6],
-    "Nam Kao Tod": [13, 5],  # price +1
+    "Nam Kao Tod": [12, 5],
     "Yum Woonsen": [13, 5],
-    "Green Mango Salad": [15, 8],  # new item
+    "Som Tum": [10, 5],
     "Yum Nua": [12, 5],
-    "MyThai Salad": [13, 8],  # price +1
-    "Som Tum": [11, 5],  # price +1
+    "Waterfall Mushroom and Tofu": [12, 6],
+    "MyThai Salad": [12, 8],
 }
 
 barbecue = {
@@ -161,42 +161,39 @@ barbecue = {
 sauteed = {
     # item name: [price, weight]
     "Pad Gra Prow": [15, 4],
-    "Pad Char": [15, 4],
-    "Pad Hi Ma Parn": [15, 100],  # new item
     "Pad Gra Tiem": [15, 5],
-    "Pad Khing": [15, 100],  # new item
+    "Pad Char": [15, 4],
 }
 
 vegetables = {
     # item name: [price, weight]
-    "Pad Ma Keur": [15, 6],  # price +3
-    "Pra Ram": [15, 5],  # price +3
-    "Pad Pak": [15, 3],  # price +3
-    "Pad Prig Khing": [15, 6],  # price +3
-    "Pad Ka Nar": [15, 8],  # price +3
+    "Pad Ma Keur": [12, 6],
+    "Pra Ram": [12, 5],
+    "Pad Pak": [12, 3],
+    "Pad Prig Khing": [12, 6],
+    "Pad Ka Nar": [12, 8],
 }
 
 curries = {
     # item name: [price, weight]
-    "Green Curry": [14, 10],  # price +2
-    "Yellow Curry": [14, 10],  # price +2
-    "Red Curry": [14, 10],  # price +2
-    "Pumpkin Curry": [16, 5],  # price +1
+    "Green Curry": [12, 10],
+    "Yellow Curry": [12, 10],
+    "Red Curry": [12, 10],
+    "Pumpkin Curry": [15, 6],
 }
 
 noodles_and_rice = {
     # item name: [price, weight]
-    "Pad Thai": [13, 10],  # price +1
-    "Pad See Ew": [13, 6],  # price +1
-    "Thai Fried Rice": [13, 9],  # price +1
-    "Thai Beef Noodle Soup": [13, 10],  # price +1
-    "Pad Kee Mao": [13, 5],  # price +1
-    "Thai Streetfood Noodle": [13, 9],  # price +1
-    "Basil Fried Rice": [13, 6],  # price +1
+    "Pad Thai": [12, 10],
+    "Pad See Ew": [12, 6],
+    "Thai Fried Rice": [12, 9],
+    "Pad Kee Mao": [12, 5],
+    "Thai Streetfood Noodle": [12, 9],
+    "Basil Fried Rice": [12, 6],
 }
 
 desserts = {
-    "Sticky Rice with Mango": [6.50, 10],  # price +0.50
+    "Sticky Rice with Mango": [6, 10],
 }
 
 full_menu = [
@@ -212,7 +209,101 @@ full_menu = [
 ]
 
 # full_menu_weights order matches full_menu
-full_menu_weights = [3, 5, 4, 2, 2, 3, 8, 11, 4]
+full_menu_weights = [3, 5, 4, 2, 4, 3, 8, 10, 4]
+
+# experiment menu
+
+b_starters = {
+    # item name: [price, weight]
+    "Vegan Fresh Rolls": [10, 9],
+    "Egg Rolls": [10, 7],  # new item
+    "Samosa": [10, 4],  # new item
+    "Sriracha Wings": [11, 5],  # price +1
+    "Chicken Satay": [11, 9],  # price +1
+    "Shrimp Rolls": [12, 7],  # new item
+}
+
+b_soup = {
+    # item name: [price, weight]
+    "Tom Kha Gai": [13, 5],  # from starters, price +1
+    "Tom Yum Goong": [16, 3],  # price +1
+    "Tom Yum Gai": [12, 3],
+    "Won Ton Soup": [12, 9],
+}
+
+b_salad = {
+    # item name: [price, weight]
+    "Larb Gai": [12, 6],
+    "Nam Kao Tod": [13, 5],  # price +1
+    "Yum Woonsen": [13, 5],
+    "Green Mango Salad": [15, 8],  # new item
+    "Yum Nua": [12, 5],
+    "MyThai Salad": [13, 8],  # price +1
+    "Som Tum": [11, 5],  # price +1
+}
+
+b_barbecue = {
+    # item name: [price, weight]
+    "Grilled Thai Steak": [20, 1],
+    "Bar-B-Q Chicken": [20, 1],
+    "Grilled Salmon": [22, 1],
+}
+
+b_sauteed = {
+    # item name: [price, weight]
+    "Pad Gra Prow": [15, 4],
+    "Pad Char": [15, 4],
+    "Pad Hi Ma Parn": [15, 100],  # new item
+    "Pad Gra Tiem": [15, 5],
+    "Pad Khing": [15, 100],  # new item
+}
+
+b_vegetables = {
+    # item name: [price, weight]
+    "Pad Ma Keur": [15, 6],  # price +3
+    "Pra Ram": [15, 5],  # price +3
+    "Pad Pak": [15, 3],  # price +3
+    "Pad Prig Khing": [15, 6],  # price +3
+    "Pad Ka Nar": [15, 8],  # price +3
+}
+
+b_curries = {
+    # item name: [price, weight]
+    "Green Curry": [14, 10],  # price +2
+    "Yellow Curry": [14, 10],  # price +2
+    "Red Curry": [14, 10],  # price +2
+    "Pumpkin Curry": [16, 5],  # price +1
+}
+
+b_noodles_and_rice = {
+    # item name: [price, weight]
+    "Pad Thai": [13, 10],  # price +1
+    "Pad See Ew": [13, 6],  # price +1
+    "Thai Fried Rice": [13, 9],  # price +1
+    "Thai Beef Noodle Soup": [13, 10],  # price +1
+    "Pad Kee Mao": [13, 5],  # price +1
+    "Thai Streetfood Noodle": [13, 9],  # price +1
+    "Basil Fried Rice": [13, 6],  # price +1
+}
+
+b_desserts = {
+    "Sticky Rice with Mango": [6.50, 10],  # price +0.50
+}
+
+b_full_menu = [
+    b_starters,
+    b_soup,
+    b_salad,
+    b_barbecue,
+    b_sauteed,
+    b_vegetables,
+    b_curries,
+    b_noodles_and_rice,
+    b_desserts,
+]
+
+# full_menu_weights order matches full_menu
+b_full_menu_weights = [3, 5, 4, 2, 2, 3, 8, 11, 4]
 
 columns = ['Order ID', 'Item', 'Quantity Ordered', 'Price Each', 'Order Date', "Test Type"]
 
@@ -244,59 +335,117 @@ for year in years:
                     orders = int(np.random.normal(loc=60*order_weight, scale=4))
 
                     for i in range(orders):  # needs refactor
-                        food_type_selection = random.choices(full_menu, weights=full_menu_weights)
-                        food_type_weights = [selection[1] for selection in list(food_type_selection[0].values())]
-                        food_selection = random.choices(list(food_type_selection[0].keys()), food_type_weights)[0]
-
-                        price = food_type_selection[0][food_selection][0]
-
-                        quantity_ordered = math.ceil(np.random.exponential(scale=1, size=1)[0])
-                        # quantity_ordered = 1
-                        # if random.random() < 0.02:  # chance to increase quantity of same item
-                        #     quantity_ordered = random.choice(range(1, 10))
-                        # elif random.random() < 0.05:
-                        #     quantity_ordered = 2
-
-                        if random.random() > 0.5:
-                            test_type = "A"
-                        else:
-                            test_type = "B"
-
-                        random_minute = random.randint(0, 59)
-                        order_date = datetime.datetime(year, month, day, hour, random_minute)
-
-                        day_df = pd.DataFrame(columns=columns)
-                        day_df.loc[i] = [order_id, food_selection, quantity_ordered, price, order_date, test_type]
-                        month_df = month_df.append(day_df, ignore_index=True)
-
-                        # chance for additional item in order (could refactor)
-                        if food_selection in starters and random.random() > 0.8:  # increased from 0.1 to 0.2 chance
-                            if random.random() > 0.6:
-                                food_type_selection = [desserts]
+                            if random.random() > 0.5:  # use experiment menu
+                                food_type_selection = random.choices(b_full_menu, weights=b_full_menu_weights)
                                 food_type_weights = [selection[1] for selection in list(food_type_selection[0].values())]
                                 food_selection = random.choices(list(food_type_selection[0].keys()), food_type_weights)[0]
+
                                 price = food_type_selection[0][food_selection][0]
-                                day_df = pd.DataFrame(columns=columns)
-                                day_df.loc[i] = [order_id, food_selection, 1, price, order_date, test_type]
-                                month_df = month_df.append(day_df, ignore_index=True)
-                            else:
-                                food_type_selection = random.choices(full_menu, weights=full_menu_weights)
-                                food_type_weights = [selection[1] for selection in list(food_type_selection[0].values())]
-                                food_selection = random.choices(list(food_type_selection[0].keys()), food_type_weights)[0]
-                                price = food_type_selection[0][food_selection][0]
+
+                                quantity_ordered = math.ceil(np.random.exponential(scale=1, size=1)[0])
+                                # quantity_ordered = 1
+                                # if random.random() < 0.02:  # chance to increase quantity of same item
+                                #     quantity_ordered = random.choice(range(1, 10))
+                                # elif random.random() < 0.05:
+                                #     quantity_ordered = 2
+
+                                test_type = "B"
+
+                                random_minute = random.randint(0, 59)
+                                order_date = datetime.datetime(year, month, day, hour, random_minute)
+
                                 day_df = pd.DataFrame(columns=columns)
                                 day_df.loc[i] = [order_id, food_selection, quantity_ordered, price, order_date, test_type]
                                 month_df = month_df.append(day_df, ignore_index=True)
-                        elif food_selection in desserts and random.random() > 0.5:
-                            food_type_selection = random.choices(full_menu, weights=full_menu_weights)
-                            food_type_weights = [selection[1] for selection in list(food_type_selection[0].values())]
-                            food_selection = random.choices(list(food_type_selection[0].keys()), food_type_weights)[0]
-                            price = food_type_selection[0][food_selection][0]
-                            day_df = pd.DataFrame(columns=columns)
-                            day_df.loc[i] = [order_id, food_selection, quantity_ordered, price, order_date, test_type]
-                            month_df = month_df.append(day_df, ignore_index=True)
 
-                        order_id += 1
+                                # chance for additional item in order (could refactor)
+                                if food_selection in b_starters and random.random() > 0.8:  # increased from 0.1 to 0.2 chance
+                                    if random.random() > 0.6:
+                                        food_type_selection = [b_desserts]
+                                        food_type_weights = [selection[1] for selection in list(food_type_selection[0].values())]
+                                        food_selection = random.choices(list(food_type_selection[0].keys()), food_type_weights)[0]
+                                        price = food_type_selection[0][food_selection][0]
+                                        day_df = pd.DataFrame(columns=columns)
+                                        day_df.loc[i] = [order_id, food_selection, 1, price, order_date, test_type]
+                                        month_df = month_df.append(day_df, ignore_index=True)
+                                    else:
+                                        food_type_selection = random.choices(b_full_menu, weights=b_full_menu_weights)
+                                        food_type_weights = [selection[1] for selection in list(food_type_selection[0].values())]
+                                        food_selection = random.choices(list(food_type_selection[0].keys()), food_type_weights)[0]
+                                        price = food_type_selection[0][food_selection][0]
+                                        day_df = pd.DataFrame(columns=columns)
+                                        day_df.loc[i] = [order_id, food_selection, quantity_ordered, price, order_date, test_type]
+                                        month_df = month_df.append(day_df, ignore_index=True)
+                                elif food_selection in b_desserts and random.random() > 0.5:
+                                    food_type_selection = random.choices(b_full_menu, weights=b_full_menu_weights)
+                                    food_type_weights = [selection[1] for selection in list(food_type_selection[0].values())]
+                                    food_selection = random.choices(list(food_type_selection[0].keys()), food_type_weights)[0]
+                                    price = food_type_selection[0][food_selection][0]
+                                    day_df = pd.DataFrame(columns=columns)
+                                    day_df.loc[i] = [order_id, food_selection, quantity_ordered, price, order_date, test_type]
+                                    month_df = month_df.append(day_df, ignore_index=True)
+
+                                order_id += 1
+
+                            else:  # use original menu
+                                food_type_selection = random.choices(full_menu, weights=full_menu_weights)
+                                food_type_weights = [selection[1] for selection in
+                                                     list(food_type_selection[0].values())]
+                                food_selection = random.choices(list(food_type_selection[0].keys()), food_type_weights)[
+                                    0]
+
+                                price = food_type_selection[0][food_selection][0]
+
+                                quantity_ordered = math.ceil(np.random.exponential(scale=1, size=1)[0])
+                                # quantity_ordered = 1
+                                # if random.random() < 0.02:  # chance to increase quantity of same item
+                                #     quantity_ordered = random.choice(range(1, 10))
+                                # elif random.random() < 0.05:
+                                #     quantity_ordered = 2
+
+                                test_type = "A"
+
+                                random_minute = random.randint(0, 59)
+                                order_date = datetime.datetime(year, month, day, hour, random_minute)
+
+                                day_df = pd.DataFrame(columns=columns)
+                                day_df.loc[i] = [order_id, food_selection, quantity_ordered, price, order_date, test_type]
+                                month_df = month_df.append(day_df, ignore_index=True)
+
+                                # chance for additional item in order (could refactor)
+                                if food_selection in starters and random.random() > 0.9:
+                                    if random.random() > 0.6:
+                                        food_type_selection = [desserts]
+                                        food_type_weights = [selection[1] for selection in
+                                                             list(food_type_selection[0].values())]
+                                        food_selection = \
+                                        random.choices(list(food_type_selection[0].keys()), food_type_weights)[0]
+                                        price = food_type_selection[0][food_selection][0]
+                                        day_df = pd.DataFrame(columns=columns)
+                                        day_df.loc[i] = [order_id, food_selection, 1, price, order_date, test_type]
+                                        month_df = month_df.append(day_df, ignore_index=True)
+                                    else:
+                                        food_type_selection = random.choices(full_menu, weights=full_menu_weights)
+                                        food_type_weights = [selection[1] for selection in
+                                                             list(food_type_selection[0].values())]
+                                        food_selection = \
+                                        random.choices(list(food_type_selection[0].keys()), food_type_weights)[0]
+                                        price = food_type_selection[0][food_selection][0]
+                                        day_df = pd.DataFrame(columns=columns)
+                                        day_df.loc[i] = [order_id, food_selection, quantity_ordered, price, order_date, test_type]
+                                        month_df = month_df.append(day_df, ignore_index=True)
+                                elif food_selection in desserts and random.random() > 0.5:
+                                    food_type_selection = random.choices(full_menu, weights=full_menu_weights)
+                                    food_type_weights = [selection[1] for selection in
+                                                         list(food_type_selection[0].values())]
+                                    food_selection = \
+                                    random.choices(list(food_type_selection[0].keys()), food_type_weights)[0]
+                                    price = food_type_selection[0][food_selection][0]
+                                    day_df = pd.DataFrame(columns=columns)
+                                    day_df.loc[i] = [order_id, food_selection, quantity_ordered, price, order_date, test_type]
+                                    month_df = month_df.append(day_df, ignore_index=True)
+
+                                order_id += 1
 
         month_df.to_csv(f'{months[month][0]}_{year}_data.csv', index=False)  # testing path
         # month_df.to_csv(f'../thaitanic/data/raw_data/{months[month][0]}_{year}_data.csv', index=False)  # direct path
