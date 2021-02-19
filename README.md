@@ -1,4 +1,5 @@
 # thaitanic
+
 Generate, analyze, and A/B test data from a [real Thai restaurant](https://www.google.com/search?q=thai+tanic+sausalito).
 
 The point of this project is to demonstrate A/B testing, which is difficult outside of a company because you need access to a product with users. We get around that by generating the data ourselves, and then regenerating the data with random weights to simulate user feedback.
@@ -11,6 +12,7 @@ This project has three notebooks explaining its chronological steps:
 If you're only interested the raw dataset, you can find it [here](https://github.com/onederekchen/thaitanic/tree/main/data/raw_data).
 
 ### Data fields:
+
 - **Order ID**: Unique order ID (orders with more than one item are a second line with the same ID).
 - **Item**: Menu item ordered. See menu for possible values.
 - **Quantity Ordered**: Amount of the menu item ordered.
@@ -30,7 +32,7 @@ If you're only interested the raw dataset, you can find it [here](https://github
 To reroll the dataset, clone the repository and run the application generation scripts.
 ```
 git clone https://github.com/onederekchen/thaitanic
-cd thaitanic
+cd thaitanic/generators
 python data_generator.py
 ```
 
