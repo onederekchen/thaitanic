@@ -11,6 +11,8 @@ This project has three notebooks explaining its chronological steps:
 
 If you're only interested the raw dataset, you can find it [here](https://github.com/onederekchen/thaitanic/tree/main/data/raw_data).
 
+![](https://raw.githubusercontent.com/onederekchen/thaitanic/main/revenue_model.jpg)
+
 ### Data fields:
 
 - **Order ID**: Unique order ID (orders with more than one item are a second line with the same ID).
